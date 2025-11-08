@@ -17,6 +17,7 @@ func metricsBackend1(w http.ResponseWriter, r *http.Request) {
 //yet another testing comment
 //one more testing comment
 //final testing comment
+// added comment for git fetch test
 func backend1(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("backend1 got a request")
 	count++
