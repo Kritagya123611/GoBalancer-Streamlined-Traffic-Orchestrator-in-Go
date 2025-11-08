@@ -1,0 +1,19 @@
+name: Webhook Test CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  fail_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Force Failure for Testing Webhook
+        run: |
+          echo "This step will fail to trigger the webhook event"
+          exit 1
