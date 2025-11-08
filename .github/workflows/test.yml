@@ -1,19 +1,26 @@
-name: Webhook Test CI
+name: Go CI
 
 on:
   push:
-    branches:
-      - main
   pull_request:
 
 jobs:
-  fail_test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Force Failure for Testing Webhook
-        run: |
-          echo "This step will fail to trigger the webhook event"
-          exit 1
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
+
+      - name: Download dependencies
+        run: go mod tidy
+
+      - name: Run build
+        run: go build ./...
+
+      - name: Run tests
+        run: go test ./... -v
