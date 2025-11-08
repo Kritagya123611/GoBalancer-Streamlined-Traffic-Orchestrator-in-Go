@@ -13,10 +13,11 @@ func metricsBackend1(w http.ResponseWriter, r *http.Request) {
 }
 //testing comment
 //testing comment
+//another testing comment
 func backend1(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("backend1 got a request")
 	count++
-	fmt.Println("Hello from Backend 1 — hit %d times\n",count)
+	fmt.Printf("Hello from Backend 1 — hit %d times\n",count)
 }
 
 func healthCheck(w http.ResponseWriter, r *http.Request){
