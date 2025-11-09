@@ -98,7 +98,7 @@ func main() {
 			time.Sleep(5 * time.Second)
 		}
 	}()
-
+// Setting up router with CORS
 	router := chi.NewRouter()
 	router.Use(cors.Handler(cors.Options{
 		AllowedOrigins:   []string{"http://*", "https://*"},
